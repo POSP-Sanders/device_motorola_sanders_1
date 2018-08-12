@@ -20,7 +20,30 @@
 #include <cutils/properties.h>
 #include <string.h>
 
-#define BTM_DEF_LOCAL_NAME "Moto G5S Plus"
+inline const char* BtmGetDefaultName()
+{
+	char device[PROPERTY_VALUE_MAX];
+	property_get("ro.boot.device", device, "");
+
+	if (!strcmp("surnia", device)) {
+		return "Moto E";
+	} else if (!strcmp("osprey", device)) {
+		return "Moto G";
+	} else if (!strcmp("merlin", device)) {
+		return "Moto G Turbo";
+	} else if (!strcmp("lux", device)) {
+		return "Moto X Play";
+	} else if (!strcmp("harpia", device)) {
+		return "Moto G Play";
+        } else if (!strcmp("sanders", device)) {
+                return "Moto G5S Plus";
+	}
+
+	return "Motorola";
+}
+#undef PROPERTY_VALUE_MAX
+
+#define BTM_DEF_LOCAL_NAME BtmGetDefaultName()
 #define BLUETOOTH_QTI_SW TRUE
 #define MAX_ACL_CONNECTIONS   16
 #define MAX_L2CAP_CHANNELS    16
