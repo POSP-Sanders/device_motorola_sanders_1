@@ -22,15 +22,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/motorola/sanders/device.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/gzosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/pixys/config/common.mk)
 
 # Boot animation
-TARGET_SCREEN_WIDTH := 1080
-TARGET_SCREEN_HEIGHT := 1920
+TARGET_BOOT_ANIMATION_RES := 1080
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := sanders
-PRODUCT_NAME := gzosp_sanders
+PRODUCT_NAME := pixys_sanders
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
 
